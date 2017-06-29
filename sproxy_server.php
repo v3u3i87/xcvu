@@ -249,7 +249,11 @@ class SProxyServer {
 		$bind_port = [
 			$this->_conf['port']
 		];
-		$this->_proxy_server = new swoole_server($this->_conf['host'], $this->_conf['port']);
+
+		print_r($this->_conf);
+		echo "swoole conifg info start server \n\n\n";
+
+		$this->_proxy_server = new \swoole_server($this->_conf['host'], $this->_conf['port']);
 
 		foreach ($this->_conf['proxy'] as $open_port => $local_port) {
 			if (!in_array($open_port, $bind_port)) {
